@@ -35,3 +35,5 @@
 はい、初心者なので使いません。
 
 [Git pullを使うべきでない３つの理由](http://dqn.sakusakutto.jp/2012/11/git_pull.html)
+
+このファイルはローカルからpushしました
