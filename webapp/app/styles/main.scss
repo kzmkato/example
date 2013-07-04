@@ -1,0 +1,15 @@
+#header{
+  ul{
+    list-style-type: none;
+    display: -webkit-box;
+    li{
+      border: 1px solid #000; 
+      margin: 0 10px;
+    }
+  }
+  
+
+}
+#article,#header, #footer{
+  -webkit-box-shadow: 0 0 5px 2px ;
+}
