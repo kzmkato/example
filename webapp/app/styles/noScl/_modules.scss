@@ -1,0 +1,28 @@
+@mixin mainScr() {
+	// width: 90%;
+	// height: 100%;
+	// margin: 0 auto;
+	// overflow: hidden;
+}
+@mixin mainBsh() {
+	-webkit-box-shadow: 0 0 5px 2px #999;
+	-moz-box-shadow: 0 0 5px 2px #999;
+	box-shadow: 0 0 5px 2px #999;
+	
+}
+@mixin header() {
+	h1{
+		font-size: 120%;
+	}
+	span{
+		font-size: 90%;
+	}
+}
+@mixin box() {
+	display: -webkit-box;
+}
+@mixin bdrs($s) {
+	-webkit-border-radius: $s;
+	-moz-border-radius: $s;
+	border-radius: $s;
+}
