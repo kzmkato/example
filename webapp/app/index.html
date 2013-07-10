@@ -1,72 +1,54 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title></title>
-	<meta name="viewport" content="width=device-width">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>	
+	<meta charset="UTF-8">
+	<title>transition block</title>
 </head>
 <body>
-	<div id="wrap">
-		<header>
-			<div></div>
-		</header>
-		<div class="container">
-			<div class="hero-unit">
-				<h2>input[radio] -> input[text] enabled or disabled</h2>
-				<hr>
-				<input type="radio" name="type-select" id="detail" value="detail">
-				<label for="detail">詳細に</label>
-				<input type="radio" name="type-select" id="rough" value="rough">
-				<label for="rough">簡単に</label>
-			</div>
-			<div="hero-unit">
-				<table>
-					<tr>
-						<td><input type="text"></td>
-						<td><input type="text"></td>
-						<td><input type="text"></td>
-					</tr>
-					<tr>
-						<td><input type="text"></td>
-						<td><input type="text"></td>
-						<td><input type="text"></td>
-					</tr>
-					<tr class="disabled">
-						<td><input type="text"></td>
-						<td><input type="text"></td>
-						<td><input type="text"></td>
-					</tr>
-				</table>
-				<p></p>
-			</div>
-		</div>
-	</div>
+	<style>
+	ul{
+		list-style-type: none;
+		font-size: 4em;
+		display: -webkit-box;
+	}
+	[type=radio]{
+		opacity: 0;
+		position: absolute;
+	}
+	.trans li{
+		-webkit-transition: 2s ease-in;
+		transition:  2s ease-in;
+		opacity: 0;
+		margin-left: 20px;
+	}
+	label{
+		position: relative;
+		
+	}
+	label ~ span{
+		opacity: 0;
+		position: absolute;
+		left: 8px;
+		margin: 0;
+		overflow: 0; 
+	}
+	:checked ~ label{
+		opacity: 0;
+	}
+	:checked ~ label ~ span{
+		position: absolute;
+		opacity: 1;
+		text-decoration: underline;
+		color: #f00;
+	}
+	:checked ~ .trans li{
+		opacity: 1;
+	}
+	</style>
+	<input type="radio" id="a"><label for="a">check me?</label>
+	<span>check now!</span>
+		<ul class="trans visiblity">
+			<li>ALLO!!!!</li>
+		</ul>
 </body>
 </html>
-<script>
-	$("input[type=radio]").click(function(){
-		$("p").html($(this).val() + " input");
-		if('rough' == $(this).val()){
-			$("input[type=text]").attr("disabled","disabled");
-			$(".disabled input").removeAttr("disabled");
-		}else{
-			$("input[type=text]").removeAttr("disabled");
-			$(".disabled input").attr("disabled","disabled");
-		}
-	})
-</script>
-<style>
-	table{
-		border: 1px solid #000;
-		border-collapse: collapse;
-	}
-	td{
-		border: 1px solid #000;
-		border-collapse: collapse;
-		padding: 20px;
-	}
-	p{
-		height: 1em;
-		font-size: 1em;
-	}
-</style>
