@@ -4,7 +4,27 @@
 	<meta charset="UTF-8">
 	<title>Sumbnail</title>
 	<link rel="stylesheet" href="styles/main.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(".ls ul li").hover(
+				function(){
+					$(this).append("<div class='hover bg'></div><div class='hover txt'>"+$(this).children(".discript").attr("title")+"</div>");
+				},
+				function(){
+					$(this).find("div.hover.bg").remove();
+					$(this).find("div.hover.txt").remove();
+				}
+			);	
+			$(".ls li:nth-child(2) .discript").load("./styles/main.css"); 
+			$(".ls li:nth-child(3) .discript").load("./images/glyphicons-halflings.png");
+
+			// $(".ls li:nth-child(2)").load("https://www.google.co.jp/webhp?hl=ja&tab=ww"); 
+			// XMLHttpRequest cannot load https://www.google.co.jp/webhp?hl=ja&tab=ww. Origin http://localhost:9000 is not allowed by Access-Control-Allow-Origin. 
+			// 人様んちURLからデータを勝手に取得できないというChromeのエラーらしい
+			//同じドメインなら大丈夫
+		})
+	</script>
 </head>
 <body>
 	<div id="wrap">
@@ -24,17 +44,31 @@
 				<section class="ls">
 					<h2></h2>
 					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
+						<li>
+							<div class="discript" title=".discriptの<br>title属性を<br>取得してノードに展開">
+								3.14159 2653589 7932384626433 8327950 2884197 1693993751582
+							</div>
+						</li>
+						<li>
+							<div class="discript" title="jqueryの<br>load関数で<br>展開テスト"> </div>
+						</li>
+						<li>
+							<div class="discript" title="左に同じ">text</div>
+						</li>
+						<li>
+							<div class="discript" title="that">text</div>
+						</li>
+						<li>
+							<div class="discript">text</div>
+						</li>
+						
+						<!-- li*5 -->
+						<!-- li*5 -->
 					</ul>
 				</section>
-				<footer></footer>
 			</article>
-			
 		</div>
+	<nav id="global"><a href="prev">prev</a><a href="next">next</a></nav>
 	</div>
 </body>
 </html>
